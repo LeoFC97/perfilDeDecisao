@@ -91,5 +91,23 @@ function generateAnalises(matrizDeRespostas) {
     dsum = 2 * (dlist[0] + dlist[1] + dlist[2] + dlist[3] + dlist[4])
     
     res_dic = {Visual: vsum, Cinestesico: csum, Auditivo: asum, Digital: dsum}
-    console.log(res_dic)
+    exibirResultados(res_dic)
+}
+
+
+function exibirResultados(resultados){
+    
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '<strong>Seus resultados:</strong>',
+        html:
+        `<ul>
+            <li>Visual: ${resultados.Visual}%</li>
+            <li>Cinestesico: ${resultados.Cinestesico}%</li>
+            <li>Auditivo: ${resultados.Auditivo}%</li>
+            <li>Digital: ${resultados.Digital}%</li>
+        </ul>
+        `
+      })
 }
