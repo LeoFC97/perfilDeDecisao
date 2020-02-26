@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+
+input {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 13pt;
+    background-color: rgba(255,255,255,.8);
+}
+
+legend {
+    color: #888888;
+    font-weight: bold;
+    font-size: 13pt;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+fieldset {
+    border-color: #cecece;
+    margin: 20px;
+}

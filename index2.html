@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Avaliação de Sistemas Responsivos</title>
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="_css/form.css" />
+</head>
+<script language="javascript" src="_javascript/funcoes.js"></script>
+
+<body>
+    <div id="interface">
+
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Vamos lá!</h1>
+                <h2>São cinco perguntinhas com quatro alternativas cada.</h2>
+            </hgroup>
+
+            <img id="icone" src="_imagens/Logo_Final_Transparente-pequena.png">
+        </header>
+
+        <section id="corpo">
+
+            <article id="instrucoes">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <br>
+                        <h1>Você deve preencher cada pergunta com respostas variando de 1 a 4</h1>
+                        <h2>Sem repetir a numeração por pergunta</h2>
+                        <h2>A escala segue esse padrão:</h2>
+                        <p>4 = A que melhor descreve você;</p>
+                        <p>3 = A próxima melhor descrição;</p>
+                        <p>2 = A próxima melhor;</p>
+                        <p>1 = A que menos descreve você.</p>
+                    </hgroup>
+                </header>
+
+                <fieldset onchange="handlerCard(`resp1`)" id="perg1">
+                    <legend> Eu tomo decisões importantes baseado em:</legend>
+                    <p><input type="number" name="esc0101" class="resp1" min="1" max="4" />
+                        Intuição</p>
+                    <p><input type="number" name="esc0102" class="resp1" min="1" max="4" /> O
+                        que me soa melhor</p>
+                    <p><input type="number" name="esc0103" class="resp1" min="1" max="4" /> O
+                        que me parece melhor</p>
+                    <p><input type="number" name="esc0104" class="resp1" min="1" max="4" /> Um
+                        estudo preciso e minucioso do assunto</p>
+                </fieldset>
+
+                <fieldset onchange="handlerCard(`resp2`)" id="perg2">
+                    <legend>Durante uma discussão eu sou mais influenciado por:</legend>
+                    <p><input type="number" name="esc0201" class="resp2" min="1" max="4" /> Tom de voz da outra pessoa
+                    </p>
+                    <p><input type="number" name="esc0202" class="resp2" min="1" max="4" /> Se eu posso ou não ver o
+                        argumento da outra pessoa</p>
+                    <p><input type="number" name="esc0203" class="resp2" min="1" max="4" /> A lógica do argumento da
+                        outra pessoa</p>
+                    <p><input type="number" name="esc0204" class="resp2" min="1" max="4" /> Se eu entro em contato ou
+                        não com os sentimentos reais do outro</p>
+                </fieldset>
+
+                <fieldset onchange="handlerCard(`resp3`)" id="perg3">
+                    <legend>Eu comunico mais facilmente o que se passa comigo:</legend>
+                    <p><input type="number" name="esc0301" class="resp3" min="1" max="4" /> Do modo como me visto e me
+                        aparento</p>
+                    <p><input type="number" name="esc0302" class="resp3" min="1" max="4" /> Pelos sentimentos que
+                        compartilho</p>
+                    <p><input type="number" name="esc0303" class="resp3" min="1" max="4" /> Pelas palavras que escolho
+                    </p>
+                    <p><input type="number" name="esc0304" class="resp3" min="1" max="4" /> Pelo tom da minha voz</p>
+                </fieldset id="perg3">
+
+                <fieldset onchange="handlerCard(`resp4`)" id="perg4">
+                    <legend>É muito fácil para mim:</legend>
+                    <p><input type="number" name="esc0401" class="resp4" min="1" max="4" /> Achar o volume e a sintomia
+                        ideias num sistema de som</p>
+                    <p><input type="number" name="esc0402" class="resp4" min="1" max="4" /> Selecionar o ponto mais
+                        relevante relativo a um assunto interessante</p>
+                    <p><input type="number" name="esc0403" class="resp4" min="1" max="4" /> Escolher os móveis mais
+                        confortáveis</p>
+                    <p><input type="number" name="esc0404" class="resp4" min="1" max="4" /> Escolher as combinações de
+                        cores mais ricas e atraentes</p>
+                </fieldset>
+
+                <fieldset onchange="handlerCard(`resp5`)" id="perg5">
+                    <legend>Eu me percebo assim:</legend>
+                    <p><input type="number" name="esc0501" class="resp5" min="1" max="4" /> Se estou muito em sintonia
+                        com os sons do ambiente</p>
+                    <p><input type="number" name="esc0502" class="resp5" min="1" max="4" /> Se sou muito capaz de
+                        raciocinar com fatos e dados novos</p>
+                    <p><input type="number" name="esc0503" class="resp5" min="1" max="4" /> Eu sou muito sensível à
+                        maneira como a roupa veste o meu corpo</p>
+                    <p><input type="number" name="esc0504" class="resp5" min="1" max="4" /> Eu respondo fortemente às
+                        cores e à aparência de uma sala</p>
+                </fieldset>
+
+                <input onclick="sendForm()" type="image" name="tEnviar" src="_imagens/botao-enviar.png" />
+
+            </article>
+        </section>
+
+
+        <footer id="rodape">
+            <p>Copyright &copy; 2020 - Julliana Piraciaba <br>
+                <a href="http://facebook.com/julliana.piraciaba" target="_blank"> Facebook</a>|
+                <a href="http://instagram.com/jullianalmeida90/" target="_blank">Instagram</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
