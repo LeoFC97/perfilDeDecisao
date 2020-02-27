@@ -82,32 +82,55 @@ function generateAnalises(matrizDeRespostas) {
         }
     }
 
-    vsum = 2 * ( vlist[0] + vlist[1] + vlist[2] + vlist[3] + vlist[4])
+    vsum = 2 * (vlist[0] + vlist[1] + vlist[2] + vlist[3] + vlist[4])
 
     csum = 2 * (clist[0] + clist[1] + clist[2] + clist[3] + clist[4])
 
     asum = 2 * (alist[0] + alist[1] + alist[2] + alist[3] + alist[4])
 
     dsum = 2 * (dlist[0] + dlist[1] + dlist[2] + dlist[3] + dlist[4])
-    
-    res_dic = {Visual: vsum, Cinestesico: csum, Auditivo: asum, Digital: dsum}
+
+    res_dic = { Visual: vsum, Cinestesico: csum, Auditivo: asum, Digital: dsum }
+ 
     exibirResultados(res_dic)
 }
 
 
-function exibirResultados(resultados){
-    
+function exibirResultados(resultados) {
+    var maior = -Infinity;
+    var chave;
+    for (var prop in resultados) {
+        // ignorar propriedades herdadas
+        if (resultados.hasOwnProperty(prop)) {
+            if (resultados[prop] > maior) {
+                maior = resultados[prop];
+                chave = prop;
+            }
+        }
+    }
+
     Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'success',
         title: '<strong>Seus resultados:</strong>',
         html:
-        `<ul>
+            `
+            <p> Voce toma decisões de forma: <strong>${chave}</strong></p>
+            <ul>
             <li>Visual: ${resultados.Visual}%</li>
             <li>Cinestesico: ${resultados.Cinestesico}%</li>
             <li>Auditivo: ${resultados.Auditivo}%</li>
             <li>Digital: ${resultados.Digital}%</li>
         </ul>
-        `
-      })
+        <i>Deseja ver mais sobre o seu pefil?</i>
+        `,
+        showConfirmButton:true,
+        showCancelButton: true,
+        confirmButtonText:
+    `<a href="./perfis/${chave}.html"> <i style="color:white;"> Sim!</i> </a>`,
+    confirmButtonAriaLabel: 'Thumbs up, great!',
+  cancelButtonText:
+    '<i>Nao! </i>',
+  cancelButtonAriaLabel: 'Thumbs down'
+    })
 }
