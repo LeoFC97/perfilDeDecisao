@@ -33,7 +33,6 @@ function handlerCard(classeDoCard) {
         }
     }
     const a = hasDuplicates(respostasJaUsadas)
-    console.log("valor do a: " + a)
     a ? showAlert(valorRepetido) : false
 }
 
@@ -52,7 +51,6 @@ function generateAnalises(matrizDeRespostas) {
         analises[i] = []
         for (j = 0; j < quantidadeAlternativas; j++) {
             var gabaritoAtual = gabaritos[i][j]
-            //console.log(gabaritoAtual)
             analises[i][j] = { [gabaritoAtual]: matrizDeRespostas[i][j] }
         }
     }
@@ -65,7 +63,6 @@ function generateAnalises(matrizDeRespostas) {
     var dlist = []
 
     for (i = 0; i < quantidaPerguntas; i++) {
-        //console.log(analises[i]['a'])
         for (j = 0; j < quantidadeAlternativas; j++) {
             if (analises[i][j].v) {
                 vlist.push(parseFloat(analises[i][j].v))
@@ -91,12 +88,18 @@ function generateAnalises(matrizDeRespostas) {
     dsum = 2 * (dlist[0] + dlist[1] + dlist[2] + dlist[3] + dlist[4])
 
     res_dic = { Visual: vsum, Cinestesico: csum, Auditivo: asum, Digital: dsum }
- 
+
     exibirResultados(res_dic)
 }
 
 
 function exibirResultados(resultados) {
+    const linksParaPerfis = {
+        Auditivo: "https://drive.google.com/open?id=1T4pKWZHOEBA1vcBXtzk6j4Ht0wfLXNip",
+        Cinestesico: "https://drive.google.com/open?id=1ty_ZtBJgXyONssXsBLEIGMlm8oEgissb",
+        Digital: "https://drive.google.com/open?id=1ZJ4kKzr6iVcq8vmOgtEJ3_4d9lk1AQDB",
+        Visual: "https://drive.google.com/open?id=1L0uFGpi7DD87ZcdqCY4cKjH2BKBm-JMH"
+    }
     var maior = -Infinity;
     var chave;
     for (var prop in resultados) {
@@ -124,13 +127,17 @@ function exibirResultados(resultados) {
         </ul>
         <i>Deseja ver mais sobre o seu pefil?</i>
         `,
-        showConfirmButton:true,
+        showConfirmButton: true,
         showCancelButton: true,
         confirmButtonText:
-    `<a href="./perfis/${chave}.html"> <i style="color:white;"> Sim!</i> </a>`,
-    confirmButtonAriaLabel: 'Thumbs up, great!',
-  cancelButtonText:
-    '<i>Nao! </i>',
-  cancelButtonAriaLabel: 'Thumbs down'
+            `<i style="color:white;"> Sim!</i>`,
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        cancelButtonText:
+            '<i>Nao! </i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+    }).then((result) => {
+        if (result.value) {
+            window.location= linksParaPerfis[chave]
+        }
     })
 }
